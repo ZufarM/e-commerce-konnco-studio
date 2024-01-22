@@ -26,17 +26,25 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = new OrderRepository();
-        $order->create();
+        $order_id = $order->create();
 
-        return redirect()->back();
+        return redirect()->route('order', $order_id);
     }
 
     public function show($order_id)
     {
+        // Order
+        $order = new OrderRepository();
+        $order = $order->getOrderID($order_id);
+        // Order Item
         $orderItemRep = new OrderItemRepository();
         $orderItem = $orderItemRep->getOrderIDItem($order_id);
         // show order item user
-        return view('order.show', ['orderItem' => $orderItem]);
+//        return $order;
+        return view('order.show', [
+            'order' => $order[0],
+            'orderItem' => $orderItem
+        ]);
     }
 
     public function destroy(Order $order)

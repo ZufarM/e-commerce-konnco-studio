@@ -69,7 +69,7 @@
                             <tr>
                                 <td>{{ $cart_item->product_name }}</td>
                                 <td>{{ $cart_item->qty }}</td>
-                                <td>{{ $cart_item->product_price }}</td>
+                                <td>{{ $cart_item->qty * $cart_item->product_price }}</td>
                                 <td>
                                     <form method="POST" action="{{ route('cart.remove', $cart_item->id ) }}">
                                         @csrf

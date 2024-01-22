@@ -55,6 +55,15 @@ class OrderRepository
 
         // Delete Cart User
         $cartRepository->removeCartUser($user->id);
+
+        return $order_id; // order_id
+    }
+
+    public function getOrderID($order_id)
+    {
+        $data = Order::where('order_id', '=', $order_id)->get();
+
+        return $data;
     }
 
     public function getOrderUser($user_id){
