@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">Selamat Datang dan Selamat Belanja</div>
+                <div class="card-header">Guitar Catalogue</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -51,7 +51,7 @@
 
             @auth
             <div class="card mt-5">
-                <div class="card-header">Keranjang Belanja</div>
+                <div class="card-header">Cart</div>
 
                 <div class="card-body">
                     <table class="table table-borderless table-hover">
@@ -88,7 +88,7 @@
                             <th>{{$total}}</th>
                         </tr>
                         <tr>
-                            <th>Nama</th>
+                            <th>Name</th>
                             <th></th>
                             <th colspan="3">: {{auth()->user()->name}}</th>
                         </tr>

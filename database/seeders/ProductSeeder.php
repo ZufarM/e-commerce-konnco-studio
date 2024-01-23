@@ -17,22 +17,26 @@ class ProductSeeder extends Seeder
         $productsRepository = new ProductsRepository();
 
         $productsRepository->create([
-            'name' => 'Pensil Mekanik',
-            'description' => 'Pensil isi ulang ukuran 0.5',
+            'name' => 'Fender Stratocaster',
+            'description' => 'The American Professional II Stratocaster® draws from more than sixty years of innovation, inspiration and evolution to meet the demands of todays working player.',
             'stock' => 100,
-            'price' => 5000,
+            'price' => 20000000,
         ]);
         $productsRepository->create([
-            'name' => 'Isi Pensil Mekanik',
-            'description' => 'Isi ulang pensil mekanik ukuran 0.5',
+            'name' => 'Fender Telecaster',
+            'description' => 'Fusing classic Fender® design with player-centric features and exciting new finishes,
+            the Player Plus Telecaster® delivers superb playability and unmistakable style.
+            Powered by a set of Player Plus Noiseless™ pickups, the Player Plus Tele® delivers warm,
+            sweet Tele® twang without hum. A push-pull switch on the tone control engages both
+            pickups in series operation, delivering increased output and body.',
             'stock' => 100,
-            'price' => 5000,
+            'price' => 15000000,
         ]);
         $productsRepository->create([
-            'name' => 'Buku Catatan',
-            'description' => 'Buku catatan bergaris ukuran A5',
+            'name' => 'Jazzmaster',
+            'description' => 'The American Professional II Stratocaster® draws from more than sixty years of innovation, inspiration and evolution to meet the demands of todays working player.',
             'stock' => 100,
-            'price' => 10000,
+            'price' => 25000000,
         ]);
     }
 }
