@@ -28,11 +28,27 @@
                                 </tr>
                                 <tr>
                                     <th>order status</th>
-                                    <td>: {{ $order->order_status }}</td>
+                                    <td>:
+                                        <b class="
+                                        @if($order->payment_status == 'waiting_payment') text-warning
+                                        @elseif($order->payment_status == 'delivered') text-success
+                                        @else text-info
+                                        @endif
+                                            "
+                                        >
+                                            {{ $order->order_status }}
+                                        </b>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>payment status</th>
-                                    <td>: {{ $order->payment_status }}</td>
+                                    <td>:
+                                        <b class="
+                                        @if($order->payment_status != 'paid') text-warning @else text-success @endif
+                                            "
+                                        >
+                                            {{ $order->payment_status }}
+                                        </b> </td>
                                 </tr>
                                 <tr>
                                     <th>Sub total</th>
@@ -68,6 +84,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <button class="btn btn-success" onClick="window.location.reload();">Check Status</button>
                     </div>
                 </div>
             </div>

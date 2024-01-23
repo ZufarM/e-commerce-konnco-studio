@@ -3,7 +3,6 @@
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-
-Route::get('/home', function () {
-    return redirect()->route('home');
-});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('addDeliveryAddress', [HomeController::class, 'addDeliveryAddress'])->name('addDeliveryAddress');

@@ -109,6 +109,13 @@ class OrderRepository
         return $data;
     }
 
+    public function firstOrFailOrderID($order_id)
+    {
+        $data = Order::where('order_id', '=', $order_id)->firstOrFail();
+
+        return $data;
+    }
+
     public function getOrderUser($user_id){
         $data = Order::where('user_id', '=', $user_id)->get();
 

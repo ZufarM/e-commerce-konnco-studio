@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col">
             <div class="card">
                 <div class="card-header">Selamat Datang dan Selamat Belanja</div>
 
@@ -14,10 +14,9 @@
                         </div>
                     @endif
 
-                    <table>
+                    <table class="table table-borderless table-hover">
                         <thead>
                         <tr>
-                            <th>UUID</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Stock</th>
@@ -28,7 +27,6 @@
                         <tbody>
                         @foreach ($products as $product)
                             <tr>
-                                <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->stock }}</td>
@@ -41,7 +39,7 @@
                                         <input type="hidden" value="{{ $product->name }}" name="name">
                                         <input type="hidden" value="{{ $product->price }}" name="price">
                                         <input type="hidden" value="1" name="quantity">
-                                        <button type="submit">Add to Cart</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-info ">Add to Cart</button>
                                     </form>
                                 </td>
                             </tr>
@@ -56,12 +54,12 @@
                 <div class="card-header">Keranjang Belanja</div>
 
                 <div class="card-body">
-                    <table>
+                    <table class="table table-borderless table-hover">
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Price</th>
                             <th>Qty</th>
+                            <th>Price</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -77,7 +75,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <input type="hidden" value="{{ $cart_item->id }}" name="id">
-                                        <button type="submit">Remove</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
                                     </form>
                                 </td>
                             </tr>
@@ -91,19 +89,23 @@
                         </tr>
                         <tr>
                             <th>Nama</th>
+                            <th></th>
                             <th colspan="3">: {{auth()->user()->name}}</th>
                         </tr>
                         <tr>
                             <th>Email</th>
+                            <th></th>
                             <th colspan="3">: {{auth()->user()->email}}</th>
                         </tr>
                         <tr>
                             <th>Metode Pembayaran</th>
+                            <th></th>
                             <th colspan="3">: VA BNI</th>
                         </tr>
                         @if($delivery_address != null)
                             <tr>
-                                <th>Alamat pengiriman</th>
+                                <th>Address delivery</th>
+                                <th></th>
                                 <th colspan="3">: {{$delivery_address}}</th>
                             </tr>
                         @endif
@@ -114,15 +116,15 @@
                             <form method="POST" action="{{ route('addDeliveryAddress') }}">
                                 @csrf
                                 @method('POST')
-                                <button disabled>Checkout</button>
-                                <input type="text" value="" name="delivery_address" placeholder="Alamat Pengiriman">
-                                <button type="submit">Submit</button>
+                                <input type="text" value="" name="delivery_address" placeholder="Address delivery">
+                                <button type="submit" class="btn btn-sm btn-info text-white">Submit</button>
+                                <button class="btn btn-sm btn-success text-white" disabled>Checkout to Order</button>
                             </form>
                         @else
                             <form method="POST" action="{{ route('checkout') }}">
                                 @csrf
                                 @method('POST')
-                                <button type="submit">Checkout to Order</button>
+                                <button type="submit" class="btn btn-sm btn-success text-white">Checkout to Order</button>
                             </form>
                         @endif
                     @endif

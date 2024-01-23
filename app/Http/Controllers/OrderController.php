@@ -44,9 +44,4 @@ class OrderController extends Controller
             'orderItem' => $orderItem
         ]);
     }
-
-    public function destroy(Order $order)
-    {
-        //
-    }
 }

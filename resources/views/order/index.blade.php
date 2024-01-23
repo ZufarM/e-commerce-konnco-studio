@@ -14,31 +14,29 @@
                             </div>
                         @endif
 
-                        <table>
+                        <table class="table table-borderless table-hover">
                             <thead>
                             <tr>
+                                <th>Time</th>
                                 <th>Name</th>
-                                <th>Alamat Pengiriman</th>
-                                <th>order status</th>
-                                <th>payment status</th>
-                                <th>Sub total</th>
-                                <th>Biaya pengiriman</th>
-                                <th>Total Pembayaran</th>
-                                <th>Actions</th>
+                                <th>Address delivery</th>
+                                <th>Order status</th>
+                                <th>Payment status</th>
+                                <th>Amount</th>
+                                <th>Order ID</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($orders as $order)
                                 <tr>
+                                    <td>{{ $order->created_at }}</td>
                                     <td>{{ auth()->user()->name }}</td>
                                     <td>{{ $order->delivery_address }}</td>
                                     <td>{{ $order->order_status }}</td>
                                     <td>{{ $order->payment_status }}</td>
-                                    <td>{{ $order->sub_total }}</td>
-                                    <td>{{ $order->delivery_fee }}</td>
-                                    <td>{{ $order->total }}</td>
+                                    <td>Rp.{{ $order->total }}</td>
                                     <td>
-                                        <a href="{{ route('order', $order->order_id) }}">Detail</a>
+                                        <a href="{{ route('order', $order->order_id) }}">{{ $order->order_id }}</a>
                                     </td>
                                 </tr>
                             @endforeach
