@@ -17,6 +17,7 @@
                     <table>
                         <thead>
                         <tr>
+                            <th>UUID</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Stock</th>
@@ -27,6 +28,7 @@
                         <tbody>
                         @foreach ($products as $product)
                             <tr>
+                                <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->stock }}</td>
@@ -87,6 +89,18 @@
                             <th></th>
                             <th>{{$total}}</th>
                         </tr>
+                        <tr>
+                            <th>Nama</th>
+                            <th colspan="3">: {{auth()->user()->name}}</th>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <th colspan="3">: {{auth()->user()->email}}</th>
+                        </tr>
+                        <tr>
+                            <th>Metode Pembayaran</th>
+                            <th colspan="3">: VA BNI</th>
+                        </tr>
                         @if($delivery_address != null)
                             <tr>
                                 <th>Alamat pengiriman</th>
@@ -108,7 +122,7 @@
                             <form method="POST" action="{{ route('checkout') }}">
                                 @csrf
                                 @method('POST')
-                                <button type="submit">Checkout</button>
+                                <button type="submit">Checkout to Order</button>
                             </form>
                         @endif
                     @endif

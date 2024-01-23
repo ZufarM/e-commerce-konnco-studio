@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Repository\CartRepository;
 use App\Repository\OrderItemRepository;
 use App\Repository\OrderRepository;
 use Illuminate\Http\Request;
@@ -40,7 +39,6 @@ class OrderController extends Controller
         $orderItemRep = new OrderItemRepository();
         $orderItem = $orderItemRep->getOrderIDItem($order_id);
         // show order item user
-//        return $order;
         return view('order.show', [
             'order' => $order[0],
             'orderItem' => $orderItem

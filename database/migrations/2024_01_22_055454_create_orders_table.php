@@ -14,10 +14,12 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary()->default(DB::raw('(UUID())'));
             $table->string('order_id');
-            $table->string('user_id');
+            $table->uuid('user_id');
             $table->string('delivery_address');
+            $table->string('bank');
+            $table->string('va_number');
             $table->integer('sub_total'); // nilai total dari item yang dipesan (tidak termasuk delivery fee)
             $table->integer('delivery_fee'); // nilai ongkos kirim
             $table->integer('total'); // subtotal + delivery_fee

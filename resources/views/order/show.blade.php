@@ -10,6 +10,10 @@
                     <div class="card-body">
                         <table>
                             <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                    <td>: {{ $order->order_id }}</td>
+                                </tr>
                                 <tr>
                                     <th>Name</th>
                                     <td>: {{ auth()->user()->name }}</td>
@@ -17,6 +21,10 @@
                                 <tr>
                                     <th>Alamat Pengiriman</th>
                                     <td>: {{ $order->delivery_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bank VA</th>
+                                    <td>: <b>{{ $order->bank }} VA {{ $order->va_number }}</b></td>
                                 </tr>
                                 <tr>
                                     <th>order status</th>
@@ -36,7 +44,7 @@
                                 </tr>
                                 <tr>
                                     <th>Total Pembayaran</th>
-                                    <td>: {{ $order->total }}</td>
+                                    <td>: <b>Rp. {{ $order->total }}</b></td>
                                 </tr>
                             </thead>
                         </table>

@@ -17,4 +17,8 @@ class OrderItem extends Model
         'qty',
         'user_id'
     ];
+
+    protected $casts = [
+        'id' => 'string'
+    ];
 }

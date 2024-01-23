@@ -15,10 +15,16 @@ class Order extends Model
         'order_id',
         'user_id',
         'delivery_address',
+        'bank',
+        'va_number',
         'sub_total',
         'delivery_fee',
         'total',
         'order_status',
         'payment_status'
+    ];
+
+    protected $casts = [
+        'id' => 'string'
     ];
 }
